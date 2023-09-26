@@ -7,9 +7,13 @@
   version="3.0"
   metadata-complete="true">  	
 	
+<<<<<<< HEAD
 	
 	
 	
+=======
+ 
+>>>>>>> 8a8238df6b8608476489d33a12d508e7eb39ca00
 	
 	<servlet>
 		<servlet-name>FormularioDavid</servlet-name>
@@ -19,7 +23,13 @@
 		<servlet-name>FormularioDavid</servlet-name>
 		<url-pattern>/FormularioDavid</url-pattern>
 	</servlet-mapping>
+<<<<<<< HEAD
 
+=======
+	<welcome-file-list>
+		<welcome-file>index<!--2, según la prueba en clase-->.html</welcome-file>
+	</welcome-file-list>
+>>>>>>> 8a8238df6b8608476489d33a12d508e7eb39ca00
 
 	
 </web-app>
