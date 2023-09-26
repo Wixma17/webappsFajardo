@@ -8,13 +8,13 @@
   metadata-complete="true">  	
 	
 	<servlet>
-		<servlet-name>Recurso1</servlet-name>
+		<servlet-name>DatosHTTP</servlet-name>
 		<!---->
-		<servlet-class>Recurso1</servlet-class>
+		<servlet-class>DatosHTTP</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Recurso1</servlet-name>
-		<url-pattern>/Recurso1</url-pattern>
+		<servlet-name>DatosHTTP</servlet-name>
+		<url-pattern>/DatosHTTP</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

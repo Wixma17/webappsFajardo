@@ -1,0 +1,29 @@
+body {
+    background-image: url(dragoniteandalu.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+table, tr, td {
+    border-collapse: collapse;
+}
+
+table tr:nth-child(odd) {
+    background-color: white;
+}
+
+table tr:nth-child(even){
+    background-color: green;
+    color: white;
+}
+
+table {
+    margin: auto;
+    margin-top: 2%;
+}
+
+tr, th, td{
+    border: 1px solid black;
+    padding: 8px;
+}
+
