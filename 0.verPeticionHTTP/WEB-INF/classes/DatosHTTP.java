@@ -12,9 +12,36 @@ public class DatosHTTP extends HttpServlet{
 		PrintWriter out = response.getWriter(); 
 		
 		out.println("<html>");
+		
+		out.println("<head>");
+		out.println("<link rel='stylesheet' href='estilo.css'/>");
+		out.println("</head>");
+		
 		out.println("<body>");
-		//TODO
-		out.println("Hola mundo");
+		out.println("<table>");
+		
+		// Se repite esta estructura tantas veces como filas haya
+
+		out.println("<tr>");
+		out.println("<th></th><td></td><td></td>");
+		out.println("</tr>");
+
+		//-------------------------------------------------------
+		
+		out.println("<tr>");
+		out.println("<th></th><td></td><td></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<th></th><td></td><td></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<th></th><td></td><td></td>");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<th></th><td></td><td></td>");
+		out.println("</tr>");
+
+		out.println("</table>");
 		out.println("</body>");
 		out.println("</html>");
 	}
