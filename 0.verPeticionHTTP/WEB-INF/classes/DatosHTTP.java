@@ -6,7 +6,7 @@ public class DatosHTTP extends HttpServlet{
 	
 	
 	
-	protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
+	protected void processRequest(HttpServletRequest request,HttpServletResponse response, boolean paramURL)throws ServletException, IOException{
 		
 		response.setContentType("text/html;charset=UTF-8"); 
 		PrintWriter out = response.getWriter(); 
@@ -44,20 +44,26 @@ public class DatosHTTP extends HttpServlet{
 		out.println("<th>getMethod()</th><td>Devuelve el tipo de la peticion HTTP</td><td>"+request.getMethod()+"</td>");
 		out.println("</tr>");
 		
-		out.println("<tr>");
-		out.println("<th>getQueryString()</th><td>Devuelve el string que contiene la informacion de los parametros</td><td>"+request.getQueryString()+"</td>");
-		out.println("</tr>");
+		
+		// Lo que conseguimos aquí es eliminar el posible null que libera el programa al procesar una petición HTTP de tipo POST, ya que no recibe la información
+		// en la cabecera, sino en el cuerpo de la petición.
+		
+		if (paramURL){
+			out.println("<tr>");
+			out.println("<th>getQueryString()</th><td>Devuelve el string que contiene la informacion de los parametros</td><td>"+request.getQueryString()+"</td>");
+			out.println("</tr>");
+		}
 		
 		out.println("<tr>");
 		out.println("<th>getRequestURL()</th><td>Devuelve la URL de la peticion del recurso solicitado</td><td>"+request.getRequestURL()+"</td>");
 		out.println("</tr>");
 		
 		out.println("<tr>");
-		out.println("<th>getLocalAddr()</th><td>Devuelve la direccion IP de la tarjeta de red del dispositivo que </td><td>"+request.getLocalAddr()+"</td>");
+		out.println("<th>getLocalAddr()</th><td>Devuelve la direccion IP de la tarjeta de red del servidor que recibe la peticion</td><td>"+request.getLocalAddr()+"</td>");
 		out.println("</tr>");
 		
 		out.println("<tr>");
-		out.println("<th>getLocalName()</th><td>Devuelve el nombre del equipo que tiene la tarjeta de red que realiza la peticion</td><td>"+request.getLocalName()+"</td>");
+		out.println("<th>getLocalName()</th><td>Devuelve el nombre del servidor que tiene la tarjeta de red que recibe la peticion</td><td>"+request.getLocalName()+"</td>");
 		out.println("</tr>");
 		
 		out.println("<tr>");
@@ -87,12 +93,12 @@ public class DatosHTTP extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
-		processRequest(request, response);
+		processRequest(request, response, true);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
-		processRequest(request, response);
+		processRequest(request, response, false);
 	}
 	
 	
