@@ -1,5 +1,5 @@
 body {
-    background-image: url(dragoniteandalu.png);
+    background-image: url(../dragoniteandalu.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -27,3 +27,17 @@ tr, th, td{
     padding: 8px;
 }
 
+a{
+    background-color: white;
+    margin: 5%;
+    padding: 7% 20%;
+    border-radius: 10%;
+}
+
+div{
+    display: block;
+    width: 10%;
+    padding: 5% 0% 0% 0%;
+    margin: auto;
+    clear: both;
+}

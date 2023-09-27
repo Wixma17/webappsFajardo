@@ -14,7 +14,7 @@ public class DatosHTTP extends HttpServlet{
 		out.println("<html>");
 		
 		out.println("<head>");
-		out.println("<link rel='stylesheet' href='estilo.css'/>");
+		out.println("<link rel='stylesheet' href='style/estilo.css'/>");
 		out.println("</head>");
 		
 		out.println("<body>");
@@ -78,13 +78,7 @@ public class DatosHTTP extends HttpServlet{
 		out.println("<th>getRemoteHost()</th><td>Este metodo devuelve el FQDN del cliente desde donde se ha generado la peticion HTTP</td><td>"+request.getRemoteHost()+"</td>");
 		out.println("</tr>");
 		
-		out.println("<tr>");
-		out.println("<th>getParameter()</th><td>Este metodo devuelve el parametro solicitado entre parentesis (segun el nombre, que es par1 en este caso)</td><td>"+request.getParameter("par1")+"</td>");
-		out.println("</tr>");
-		
-		out.println("<tr>");
-		out.println("<th>getParameterNames()</th><td>Este metodo devuelve en un objeto Enumeration (Collection en este caso) los nombres de los parametros</td><td>"+request.getParameterNames()+"</td>");
-		out.println("</tr>");
+		out.println("<div><a href='index.html'>Voler</a><a href='salida.html'>Salir</a></div>");
 		
 		out.println("</table>");
 		out.println("</body>");

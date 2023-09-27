@@ -1,0 +1,41 @@
+table, th, td{
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+ol {
+    color: yellow;
+}
+
+body table {
+    margin: 2%;
+}
+
+body {
+    background-image: url(../dragonitespain.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table tr:nth-child(1), table tr:nth-child(2), table tr:nth-child(3), table tr:last-child, table tr:nth-last-child(2), table tr:nth-last-child(3){
+    background-color: red;
+    color: yellow;
+}
+
+table tr{
+    background-color: yellow;
+    color: darkred;
+}
+
+a{
+    background-color: white;
+    margin: 5%;
+    padding: 7% 20%;
+    border-radius: 10%;
+}
+
+div{
+    display: block;
+    width: 10%;
+    padding: 5% 0% 0% 0%;
+    margin: auto;
+}
