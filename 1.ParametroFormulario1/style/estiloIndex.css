@@ -1,0 +1,23 @@
+div p, div input {
+    display: inline-block;
+}
+
+div p:first-child{
+    font-size: 20px;
+    text-decoration: double dotted;
+}
+
+div {
+    margin: 1%;
+    background-color: cadetblue;
+    color: white;
+    border-radius: 20px;
+    padding: 1%;
+}
+
+input[type='submit'] {
+    margin: auto;
+    padding: 1%;
+    display: block;
+}
+

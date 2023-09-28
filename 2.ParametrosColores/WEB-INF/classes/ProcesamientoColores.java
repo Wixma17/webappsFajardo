@@ -27,6 +27,8 @@ public class ProcesamientoColores extends HttpServlet{
 		
 		out.println("<body>");
 		
+		out.println("<h1>Resultados</h1>");
+		
 		parametros = request.getParameterNames();
 		
         while (parametros.hasMoreElements()) {
@@ -37,18 +39,19 @@ public class ProcesamientoColores extends HttpServlet{
 			
             // Escribir el nombre del parámetro en la respuesta HTML
             out.println("<div>");
-            out.println(nombreParam + ": ");
+            out.println("<h1>"+nombreParam + ": </h1>");
 			
-            // Si hay múltiples valores para este parámetro, mostrarlos separados por comas
             if (valoresParam.length > 1) {
+				out.println("<div>");
                 for (int i = 0; i < valoresParam.length; i++) {
                     valorParam = valoresParam[i];
-					out.println("<p id='"+valorParam+"'>"+valorParam+"</p>");
+					out.println("<h2 id='"+valorParam+"'>"+valorParam+"</h2>");
 				}
+				out.println("</div>");
                 
 				} else {
                 // Si solo hay un valor para este parámetro, mostrarlo
-                out.println("<p>"+valoresParam[0]+"</p>");
+                out.println("<h2>"+valoresParam[0]+"</h2>");
 			}
 			out.println("</div>");
 		}	
