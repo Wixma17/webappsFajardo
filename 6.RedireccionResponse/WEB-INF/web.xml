@@ -8,13 +8,13 @@
   metadata-complete="true">  	
 	
 	<servlet>
-		<servlet-name>Formulario</servlet-name>
+		<servlet-name>Redireccionamiento</servlet-name>
 		<!---->
-		<servlet-class>Formulario</servlet-class>
+		<servlet-class>Redireccionamiento</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Formulario</servlet-name>
-		<url-pattern>/Formulario</url-pattern>
+		<servlet-name>Redireccionamiento</servlet-name>
+		<url-pattern>/Redireccionamiento</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

@@ -9,6 +9,8 @@ public class Enviar3 extends HttpServlet{
 	protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
 	
 		response.setContentType("text/html;charset=UTF-8"); 
+		response.setCharacterEncoding("UTF-8");
+		
 		PrintWriter out = response.getWriter(); 
 		String varCampos = "campos";
 	//	String [] varClave = {"clave1", "clave2", "clave3"};
@@ -18,9 +20,9 @@ public class Enviar3 extends HttpServlet{
 	//	String [] varValores ={"valores1", "valores2", "valores3"};
 		String [] splitValores;
 		
-		out.println("<html> <head> <link rel='stylesheet' href='estilo.css' type='text/css' /> </head>");
+		out.println("<html> <head> <meta charset='utf-8' /> <link rel='stylesheet' href='estilo.css' type='text/css' /> </head>");
 		out.println("<body>");
-		out.println("<header><h1>formulario dinamico</h1></header>");
+		out.println("<header><h1>formulario dinámico</h1></header>");
 		
 		campos= request.getParameterValues("campos");
 		//campos= request.getParameterValues("campos");
