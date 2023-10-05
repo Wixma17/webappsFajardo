@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">  	
+	
+	<servlet>
+		<servlet-name>EnviarImagen</servlet-name>
+		<!---->
+		<servlet-class>EnviarImagen</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnviarImagen</servlet-name>
+		<url-pattern>/EnviarImagen</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EnviarMultimedia</servlet-name>
+		<!---->
+		<servlet-class>EnviarMultimedia</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EnviarMultimedia</servlet-name>
+		<url-pattern>/EnviarMultimedia</url-pattern>
+	</servlet-mapping>
+</web-app>

@@ -14,7 +14,6 @@ public class Formulario extends HttpServlet{
 		
 		response.setContentType("text/html;charset=UTF-8"); 
 		PrintWriter out = response.getWriter(); 
-		Map<String, String[]> parametros = null;
 		String nombreParam = null;
 		String valorSeparado = "";
 		String[] splitValores = null;
@@ -25,23 +24,25 @@ public class Formulario extends HttpServlet{
 		out.println("<body>");
 		out.println("<h1>Formulario Dinamico</h1>");
 		out.println("<form action='Parametros'>");
-		parametros = request.getParameterMap();
 		
 		String[] campos= request.getParameterValues("campos");
 		//campos= request.getParameterValues("campos");
 		
 		
+		// Recorremos los campos estáticos del select múltiple que haya elegido el usuario.
 		if(campos != null){
 			for (int i = 0; i<campos.length; i++){
+				//Iteramos por cada valor del parámetro "campos"
 				out.println("<label for="+campos[i]+">"+campos[i]+"</label>");
+				
 				out.println("<input type='text' name='"+campos[i]+"'> <br>");
 			}
 				
 		}	
 		
-		
-		//En campos captura  todos los nombres de los select
+		//Se reutiliza la variable campos, lo cual no es recomendado por legibilidad
 		campos = request.getParameterValues("clave");
+		// String [] claves = request.getParameterValues("clave");
 		
 		//En valores guarda los valores de los futuros select separados por ;
 		String[] valores = request.getParameterValues("valores");
@@ -50,17 +51,19 @@ public class Formulario extends HttpServlet{
 		
 		for (int i = 0; i < campos.length; i++){
 				
+				
+				// if (valores[i].equalsIgnoreCase("") || campos[i].equalsIgnoreCase("")) {
 				if (!valores[i].equalsIgnoreCase("") && !campos[i].equalsIgnoreCase("")) {
 					
 					out.println("<h2>Selecciona "+campos[i]+"</h2>");
 					
 					if (tipos[i].contains("select")) {
 						
-						out.println ("<select name='" +campos[i]);
+						out.print("<select name='" +campos[i]);
 						
 						if (tipos[i].equalsIgnoreCase("select"))
-							out.print("'>");
-						else out.print("' multiple>");
+							out.println("'>");
+						else out.println("' multiple>");
 							
 							
 						splitValores = valores[i].split(";");
@@ -70,10 +73,11 @@ public class Formulario extends HttpServlet{
 							valorSeparado = splitValores[j];
 							
 							out.println("<option value='"+valorSeparado+"'>"+valorSeparado+"</option>");
+							//out.println("<option value='"+splitValores[j]+"'>"+splitValores[j]+"</option>");
 								
 						}
 						
-						out.println ("</select>");
+						out.println ("</select>");	
 						
 					} else {
 					
@@ -83,8 +87,9 @@ public class Formulario extends HttpServlet{
 							
 							valorSeparado = splitValores[j];
 							
-							out.println("<label>"+valorSeparado+"<label><input type='"+tipos[i]+"' name='"+campos[i]+"' value='"+valorSeparado+"'>");
-								
+							out.println("<label>"+valorSeparado+"</label><input type='"+tipos[i]+"' name='"+campos[i]+"' value='"+valorSeparado+"'>");
+							//out.println("<label>"+splitValores[j]+"</label><input type='"+tipos[i]+"' name='"+campos[i]+"' value='"+splitValores[j]+"'>");
+							
 						}
 						
 					
@@ -93,87 +98,7 @@ public class Formulario extends HttpServlet{
 				}
 		
 		}
-		/*
-		for (Map.Entry<String, String[]> entradaParams : parametros.entrySet()) {
 		
-			if (entradaParams.getKey().equalsIgnoreCase("seleccion")){
-			
-				for (String valorParam : entradaParams.getValue()){
-				
-					out.println("<label>"+valorParam+":</label>");
-					
-					out.println("<input type='text' name='" + valorParam + "'/>");
-					
-				}
-			} else {
-			
-				valoresParam = entradaParams.getValue();
-				
-				if (!valoresParam[0].equalsIgnoreCase("") && !valoresParam[1].equalsIgnoreCase("")) {
-				
-					out.println("<label>"+valoresParam[0]+":</label>");
-					
-					out.println("<select name='"+valoresParam[0]+"' multiple>");
-					
-					valoresParam = valoresParam[1].split(";");
-					
-					for (String valorParam : valoresParam){
-					
-						out.println("<option value='"+valorParam+"'>"+valorParam+"</option>");
-						
-					}
-					
-					out.println("</select>");
-					
-				}
-				
-			}
-			
-		}
-		*/
-		
-		//	while (parametros.hasMoreElements()) {
-		//		nombreParam = parametros.nextElement();
-		
-		// Obtener los valores asociados a este nombre de parámetro
-		//		valoresParam = request.getParameterValues(nombreParam);
-		
-		//		for (int i = 0; i < valoresParam.length; i++) {
-		
-		//			valorParam = valoresParam[i];
-		
-		//			if (!nombreParam.equalsIgnoreCase("seleccion")){
-		
-		// Cómo puedo filtrar por el ";" sin tenerlo
-		//				if (valorParam.contains(";")){
-		
-		//					parametrosProcesados = valorParam.split(";");
-		
-		//					for (int j = 0; j < parametrosProcesados.length; j++){
-		//						out.println("<option value='"+parametrosProcesados[j]+"'>"+parametrosProcesados[j]+"</option>");
-		//					}
-		
-		//					out.println("</select>");
-		
-		//				} else {
-		
-		//					if (!valoresParam[1].equalsIgnoreCase("") || !valoresParam[0].equalsIgnoreCase("")) {
-		//						out.println("<label>"+valorParam+":</label>");
-		//						out.println("<select name='"+valorParam+"' multiple>");
-		//					}
-		
-		
-		//				} 
-		
-		//			} else {
-		
-		//				out.println("<label>"+valorParam+":</label>");
-		//				out.println("<input type='text' name='" + valorParam + "'/>");
-		
-		//			}
-		//		}
-		
-		//	} 
 		
 		out.println("<input type='submit' value='Procesamiento'/>");
 		out.println("</form>");
