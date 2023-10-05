@@ -17,46 +17,36 @@ public class EnviarMultimedia extends HttpServlet{
 		
 		response.setContentType("text/html;charset=UTF-8"); 
 		OutputStream out = response.getOutputStream(); 
-		
+		RandomAccessFile raf = null;
 		String param = request.getParameter("archivo");
 		
 		if (param.contains(".mp3")){
 			
 			response.setContentType("audio/mp3");
 			
-			RandomAccessFile raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
-			
-			response.setContentLength( (int) raf.length() );
-			
-			out = response.getOutputStream();
-			
-			byte [] datas = new byte [ (int) raf.length() ];
-			
-			while ( (raf.read( datas )) > 0 ){
-				out.write( datas );
-			}
-			out.flush();
+			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
 		
 		} else if (param.contains(".pdf")) {
 		
 			response.setContentType("application/pdf");
-			RandomAccessFile raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
 			
-			response.setContentLength( (int) raf.length() );
+			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
 			
-			out = response.getOutputStream();
 			
-			byte [] datas = new byte [ (int) raf.length() ];
+		} else if (param.contains(".jpg")){
 			
-			while ( (raf.read( datas )) > 0 ){
-				out.write( datas );
-			}
-			out.flush();
+			response.setContentType("image/jpg");
+			
+			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
+		
 			
 		} else {
 			
-			response.setContentType("image/jpg");
-			RandomAccessFile raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
+			response.setContentType("video/mp4");
+			
+			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
+
+		}
 		
 			response.setContentLength( (int) raf.length() );
 			
@@ -68,8 +58,6 @@ public class EnviarMultimedia extends HttpServlet{
 				out.write( datas );
 			}
 			out.flush();
-			
-		}
 		
 	}
 	

@@ -4,6 +4,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AAAAA</title>
+	<style>
+
+		form input[type="submit"]{
+			padding: 10px 20px;
+			margin: 10px;
+			display: inline-block;
+		}
+
+		div *{
+			display: inline-block;
+		}
+		
+	</style>
 </head>
 <body>
 	<form action="EnviarImagen">
@@ -11,17 +24,23 @@
 		<input type="submit" value="Enviar Imagen con Redirect" name="boton">
 		<input type="submit" value="Enviar Imagen a casho" name="boton">
 	</form>
-	<form action="EnviarMultimedia">
-		<input type="hidden" name="archivo" value="mondongo.jpg">
-		<input type="submit" value="Archivo 1" name="">
-	</form>
-	<form action="EnviarMultimedia">
-		<input type="hidden" name="archivo" value="musculoso.mp3">
-		<input type="submit" value="Archivo 2" name="boton">
-	</form>
-	<form action="EnviarMultimedia">
-		<input type="hidden" name="archivo" value="http_latex.pdf">
-		<input type="submit" value="Archivo 3" name="boton">
-	</form>
+	<div>
+		<form action="EnviarMultimedia">
+			<input type="hidden" name="archivo" value="movistar.jpg">
+			<input type="submit" value="Archivo 1" name="">
+		</form>
+		<form action="EnviarMultimedia">
+			<input type="hidden" name="archivo" value="musculoso.mp3">
+			<input type="submit" value="Archivo 2" names="boton">
+		</form>
+		<form action="EnviarMultimedia">
+			<input type="hidden" name="archivo" value="http_latex.pdf">
+			<input type="submit" value="Archivo 3" name="boton">
+		</form>
+		<form action="EnviarMultimedia">
+			<input type="hidden" name="archivo" value="contodalapuestada.mp4">
+			<input type="submit" value="Archivo 4 (Easter Egg)" name="boton">
+		</form>
+	</div>	
 </body>
 </html>
