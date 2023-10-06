@@ -23,31 +23,22 @@ public class EnviarMultimedia extends HttpServlet{
 		if (param.contains(".mp3")){
 			
 			response.setContentType("audio/mp3");
-			
-			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
-		
+
 		} else if (param.contains(".pdf")) {
 		
 			response.setContentType("application/pdf");
-			
-			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
-			
 			
 		} else if (param.contains(".jpg")){
 			
 			response.setContentType("image/jpg");
 			
-			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
-		
-			
 		} else {
 			
 			response.setContentType("video/mp4");
-			
-			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
 
 		}
-		
+			raf = new RandomAccessFile(new File(getServletContext().getRealPath("/multimedia/"+param)), "r" );
+			
 			response.setContentLength( (int) raf.length() );
 			
 			out = response.getOutputStream();
