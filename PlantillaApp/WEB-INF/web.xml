@@ -16,5 +16,4 @@
 		<servlet-name>Recurso1</servlet-name>
 		<url-pattern>/Recurso1</url-pattern>
 	</servlet-mapping>
-	
 </web-app>
