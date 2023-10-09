@@ -18,22 +18,29 @@ article {
     color: black;
 }
 
-table, tr, td {
+table,
+tr,
+td {
     border-collapse: collapse;
-    border: 2px outset lightgray ;
+    border: 2px outset lightgray;
 }
 
 table {
     width: 80%;
     margin: auto;
-    
+
 }
 
-table tr:first-child td{
+table tr:first-child td {
     background-color: rgba(0, 0, 0, 0.800);
     font-size: 30px;
     color: white;
     padding: 2%;
+}
+
+tr:hover td {
+    background-color: rgba(0, 0, 0, 0.800);
+    color: white;
 }
 
 td {
