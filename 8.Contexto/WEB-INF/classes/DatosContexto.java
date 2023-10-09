@@ -39,6 +39,7 @@ public class DatosContexto extends HttpServlet{
 		out.println("<p><strong>Hora de conexion:</strong> "+new Date()+"</p>");
 		out.println("<p><strong>Organizacion:</strong> "+getServletContext().getInitParameter("organizacion")+"</p>");
 		out.println("<p><strong>Autores:</strong> "+getServletContext().getInitParameter("autor")+"</p>");
+		out.println("<p><strong>Orden del recurso dentro de la aplicacion:</strong> "+getInitParameter("mondongo")+"</p>");
 		out.println("</article>");
 		
 		out.println("<table>");

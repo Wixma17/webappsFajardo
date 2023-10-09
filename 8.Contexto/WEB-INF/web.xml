@@ -10,15 +10,27 @@
 	<servlet>
 		<servlet-name>DatosContexto</servlet-name>
 		<servlet-class>DatosContexto</servlet-class>
+		<init-param>
+			<param-name>mondongo</param-name>
+			<param-value>1</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DatosContexto</servlet-name>
 		<url-pattern>/DatosContexto</url-pattern>
 	</servlet-mapping>
-	<context-param>
-		<param-name>fechaArranque</param-name>
-		<param-value></param-value>
-	</context-param>
+	<servlet>
+		<servlet-name>DatosContexto2</servlet-name>
+		<servlet-class>DatosContexto2</servlet-class>
+		<init-param>
+			<param-name>mondongo</param-name>
+			<param-value>2</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DatosContexto2</servlet-name>
+		<url-pattern>/DatosContexto2</url-pattern>
+	</servlet-mapping>
 	<context-param>
 		<param-name>autor</param-name>
 		<param-value>Jose Antonio Fajardo Naranjo</param-value>
@@ -27,4 +39,5 @@
 		<param-name>organizacion</param-name>
 		<param-value>IES Martin Rivero</param-value>
 	</context-param>
+
 </web-app>
