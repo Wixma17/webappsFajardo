@@ -15,10 +15,12 @@
 		<servlet-name>DatosContexto</servlet-name>
 		<url-pattern>/DatosContexto</url-pattern>
 	</servlet-mapping>
+	<!--  -->
 	<context-param>
 		<param-name>fechaArranque</param-name>
 		<param-value></param-value>
 	</context-param>
+	<!--  -->
 	<context-param>
 		<param-name>autor</param-name>
 		<param-value>Jose Antonio Fajardo Naranjo</param-value>
