@@ -19,14 +19,6 @@
 		<servlet-name>DatosContexto</servlet-name>
 		<url-pattern>/DatosContexto</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
-	<!--  -->
-	<context-param>
-		<param-name>fechaArranque</param-name>
-		<param-value></param-value>
-	</context-param>
-	<!--  -->
-=======
 	<servlet>
 		<servlet-name>DatosContexto2</servlet-name>
 		<servlet-class>DatosContexto2</servlet-class>
@@ -39,7 +31,6 @@
 		<servlet-name>DatosContexto2</servlet-name>
 		<url-pattern>/DatosContexto2</url-pattern>
 	</servlet-mapping>
->>>>>>> 8ee0c739d5cad6d1c5ddbb47192d51597e0369ea
 	<context-param>
 		<param-name>autor</param-name>
 		<param-value>Jose Antonio Fajardo Naranjo</param-value>
