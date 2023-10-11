@@ -22,6 +22,7 @@ public class AcertarNumeros extends HttpServlet{
 		// Esto podría saltarse
 		List<String> listaNumerosAux = Arrays.asList(numerosSplit);
 		
+		// ArrayList<String> listaNumeros = new ArrayList<String>(Arrays.asList(numerosSplit));
 		ArrayList<String> listaNumeros = new ArrayList<String>(listaNumerosAux);
 		
 		getServletContext().setAttribute("listaNumeros", listaNumeros);
@@ -64,7 +65,7 @@ public class AcertarNumeros extends HttpServlet{
 				
 				numeros.remove(intentoNumero);
 				
-				if (numeros.size() == 0)
+				if (numeros.isEmpty())
 					out.println("<h1>Felicidades "+nombreUsuario+", has acertado el último número</h1>");
 				else out.println("<h1>Felicidades "+nombreUsuario+", quedan "+numeros.size()+" aún, suerte!</h1>");
 				
