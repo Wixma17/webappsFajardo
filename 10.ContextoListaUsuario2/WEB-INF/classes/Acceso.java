@@ -22,7 +22,8 @@ public class Acceso extends HttpServlet{
 	
 	protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
 		
-		response.setContentType("text/html;charset=UTF-8"); 
+		response.setContentType("text/html
+			"); 
 		PrintWriter out = response.getWriter(); 
 		
 		String nombreUsuario = request.getParameter("usuario");
@@ -70,7 +71,7 @@ public class Acceso extends HttpServlet{
 			
 		} else {
 		
-		out.println("<h1>El usuario "+nombreUsuario+" ya est√° registrado</h1>");
+		out.println("<h1>El usuario "+nombreUsuario+" ya est· registrado</h1>");
 		out.println("<form action='index.html'>");
 			out.println("<input type='submit' value='Volver' name='boton'>");
 		out.println("</form>");
