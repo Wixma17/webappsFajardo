@@ -10,21 +10,20 @@ public class DesconectarUsuario extends HttpServlet{
 	
 	protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
 		
-		response.setContentType("text/html"); 
-		PrintWriter out = response.getWriter(); 
-		
+		// Cogemos el nombre del usuario a desconectar
 		String nombreUsuario = request.getParameter("usuario");
 		
-		GregorianCalendar hora = new GregorianCalendar();
-		
+		// Además, sacamos del contexto el HashMap que contiene los usuarios
 		ServletContext contexto = getServletContext();
-		
 		HashMap<String, Usuario> mapa = (HashMap<String, Usuario>)contexto.getAttribute("mapaUsuarios");
 		
+		// Borramos el usuario del mapa del contexto
 		mapa.remove(nombreUsuario);
-
+		
+		// El tipo de salida es el de "desconectado", que se comprueba en PintarLista
 		String mensaje = "desconectado";
 		
+		// Pasamos como atributo de la cabecera el tipo de salida pertinente
 		request.setAttribute("mensaje", mensaje);
 
 	
