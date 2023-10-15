@@ -5,9 +5,12 @@
 
 body {
     background-image: url(multimedia/somari.jpg);
-    background-repeat: repeat-y;
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #3b4560;
 }
+
+
 
 article {
     width: 50%;
@@ -17,6 +20,7 @@ article {
     background-color: rgba(246, 246, 246, 0.800);
     color: black;
     text-align: center;
+    box-shadow: 3px solid black;
 }
 
 h2 {
