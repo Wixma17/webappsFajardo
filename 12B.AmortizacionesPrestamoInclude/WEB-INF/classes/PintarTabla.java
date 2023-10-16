@@ -10,22 +10,27 @@ public class PintarTabla extends HttpServlet{
 	
 	protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
 		
+		// Hacemos el include del Servlet CalculoTabla
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/CalculoTabla");
-		
 		rd.include(request, response);
 		
+		// Establecemos el contenido a HTML y sacamos el PrintWriter del response
 		response.setContentType("text/html;charset=UTF-8"); 
 		PrintWriter out = response.getWriter(); 
 		
+		// Sacamos el capital inicial por parámetros
 		double capitalInicial = Double.parseDouble(request.getParameter("capital"));
 		
-		// Interés de la deuda = 0.02 anual, 0.02/2 semestral, 0.02/4 trimestral,0.02/12 mensual
+		// Sacamos el interés por parámetros
 		double interes = Double.parseDouble(request.getParameter("interes"));
 		
+		// Sacamos los años por parámetros
 		int years = Integer.parseInt(request.getParameter("years"));
 		
+		// Sacamos la periodicidad por parámetros
 		int periodicidad = Integer.parseInt(request.getParameter("periodicidad"));
 		
+		// Sacamos 
 		double[][] datosTabla = (double[][])request.getAttribute("tablaAmortizaciones");
 
 		double cuota = (double)request.getAttribute("cuota");
@@ -59,8 +64,7 @@ public class PintarTabla extends HttpServlet{
 		double sumaCapitalAmortizado = 0;
 		
 		while (contadorYears < years){
-		
-			
+
 			out.println("<table>");
 			out.println("<caption><h3>Año: "+(contadorYears+1)+"</caption></h3>");
 			out.println("<tr>");
@@ -69,11 +73,17 @@ public class PintarTabla extends HttpServlet{
 			out.println("<th>Capital amortizado</th>");
 			out.println("<th>Capital pendiente</th>");
 			out.println("</tr>");
+			
 				while (contadorPeriodicidad < periodicidad){
+				
 					out.println("<tr>"); 
+					
 					out.println("<td>"+(posicion+1)+"</td>");
+					
 					for (int k = 0; k < datosTabla[posicion].length; k++){
+					
 						out.println("<td>"+df.format(datosTabla[posicion][k])+" Euros </td>");
+						
 					}
 
 					out.println("</tr>");
