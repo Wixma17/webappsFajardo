@@ -45,7 +45,7 @@ public class AddUsuario extends HttpServlet{
 			mapa.put(user.getNombre(), user);
 			
 			// El tipo de salida es el de "introducir", que se comprueba en PintarLista
-			mensaje = "introducir";
+			mensaje = "introducido";
 			
 		} else {
 		

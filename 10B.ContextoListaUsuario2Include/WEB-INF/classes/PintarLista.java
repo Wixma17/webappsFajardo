@@ -66,7 +66,7 @@ public class PintarLista extends HttpServlet{
 			existente: El usuario "nombre" ya está registrado
 			desconectado: Adios "nombre"...
 		*/
-		if (tipoSalida.equalsIgnoreCase("introducir")) {
+		if (tipoSalida.equalsIgnoreCase("introducido")) {
 		out.println("<h1>Hola "+nombreUsuario+", has conectado a las: "+sdf.format(ultimoUsuario.getHoraConexion().getTime())+"</h1>");
 		
 		// Genera la opción de desconectar, ya que se ha conectado correctamente
