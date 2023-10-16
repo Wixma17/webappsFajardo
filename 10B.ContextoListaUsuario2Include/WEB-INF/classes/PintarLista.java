@@ -16,6 +16,8 @@ public class PintarLista extends HttpServlet{
 		// Sacamos el parámetro usuario que contiene el nombre del mismo
 		String nombreUsuario = request.getParameter("usuario");
 		
+		ServletContext contexto = getServletContext();	
+		
 		// Para que coja la hora exacta a la que se ha conectado el usuario sacamos el último usuario, inicializado a null
 		Usuario ultimoUsuario = null;
 		
