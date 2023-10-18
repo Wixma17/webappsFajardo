@@ -10,13 +10,12 @@ public class Recurso1 extends HttpServlet{
 	
 		response.setContentType("text/html;charset=UTF-8"); 
 		PrintWriter out = response.getWriter(); 
-	  
-	out.println("<html>");
-	out.println("<body>");
-	//TODO
-	out.println("Hola mundo");
-	out.println("</body>");
-	out.println("</html>");
+	  	RequestDispatcher rd = getServletContext().getRequestDispatcher("/cabecera.html");
+		rd.include(request, response);
+
+		// Para Servlets encargados de la salida
+		rd = getServletContext().getRequestDispatcher("/pie.html");
+		rd.include(request, response);
 	}
 	
 	@Override

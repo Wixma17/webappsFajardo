@@ -104,7 +104,8 @@ public class PintarTabla extends HttpServlet{
 			out.println("<td colspan='2'>Total capital amortizado: "+df.format(sumaCapitalAmortizado)+"</td>");
 			out.println("</tr>");
 			
-			
+			sumaInteres = 0;
+			sumaCapitalAmortizado = 0;
 			
 			out.println("</table>");
 			

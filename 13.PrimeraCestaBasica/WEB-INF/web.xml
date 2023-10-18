@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0"
+	metadata-complete="true">
+
+	<servlet>
+		<servlet-name>Saludo</servlet-name>
+		<servlet-class>Saludo</servlet-class>
+		<init-param>
+			<param-name>articulos</param-name>
+			<param-value>Boligrafo azul;Goma de borrar;Lapiz;Subrayador;Sacapuntas;Caja de lapiceros</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Saludo</servlet-name>
+		<url-pattern>/Saludo</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Articulos</servlet-name>
+		<servlet-class>Articulos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Articulos</servlet-name>
+		<url-pattern>/Articulos</url-pattern>
+	</servlet-mapping>
+</web-app>
