@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0"
+	metadata-complete="true">
+
+	<servlet>
+		<servlet-name>RecogidaEncuesta</servlet-name>
+		<servlet-class>RecogidaEncuesta</servlet-class>
+		<init-param>
+			<param-name>paises</param-name>
+			<param-value>Peru;Bielorrusia;Israel;Kazajistan;Murcia;Estados Hundidos;Colombia</param-value>
+		</init-param>
+	</servlet>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RecogidaEncuesta</servlet-name>
+		<url-pattern>/RecogidaEncuesta</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Despedida</servlet-name>
+		<servlet-class>Despedida</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Despedida</servlet-name>
+		<url-pattern>/Despedida</url-pattern>
+	</servlet-mapping>
+</web-app>
