@@ -11,9 +11,8 @@
 		<servlet-class>RecogidaEncuesta</servlet-class>
 		<init-param>
 			<param-name>paises</param-name>
-			<param-value>Peru;Bielorrusia;Israel;Kazajistan;Murcia;Estados Hundidos;Colombia</param-value>
+			<param-value>Peru;Mongolia;Israel;Kazajistan;Murcia;Estados Hundidos;Colombia</param-value>
 		</init-param>
-	</servlet>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RecogidaEncuesta</servlet-name>

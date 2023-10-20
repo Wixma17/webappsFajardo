@@ -6,23 +6,6 @@ import java.text.*;
 
 public class Saludo extends HttpServlet{
 	
-	@Override
-	public void init() throws ServletException {
-	
-		String articulosPapeleria = getServletConfig().getInitParameter("articulos");
-		
-		String[] articulosArray = articulosPapeleria.split(";");
-		
-		// Esto podrÃ­a saltarse
-		List<String> listaArticulosAuxiliar = Arrays.asList(articulosArray);
-		
-		// ArrayList<String> listaNumeros = new ArrayList<String>(Arrays.asList(numerosSplit));
-		ArrayList<String> listaArticulos = new ArrayList<String>(listaArticulosAuxiliar);
-		
-		getServletContext().setAttribute("articulos", listaArticulos);
-		
-	}
-	
 	protected void processRequest(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
 	
 		response.setContentType("text/html;charset=UTF-8"); 
@@ -32,37 +15,56 @@ public class Saludo extends HttpServlet{
 		out.println("<link rel='stylesheet' href='style.css'>");
 		out.println("</head>");
 		out.println("<body>");
-		HttpSession miSesion;
 		
 		String nombreUsuario = (String)request.getParameter("nombre");
+
+		Cookie[] galletas = request.getCookies();
 		
-		if (nombreUsuario == null){
-			miSesion = request.getSession();
-			nombreUsuario = (String) miSesion.getAttribute("nombreUsuario");
-		}
+		out.println("<article>");
+		
+		if (galletas != null) {
+		
+			Cookie galleta = null;
 			
-		ArrayList<String> listaArticulos = (ArrayList<String>) getServletContext().getAttribute("articulos");
-		
-		out.println("<h2>Bienvenido "+nombreUsuario+"</h2>");
-		
-		
-		out.println("<form action = 'Articulos'>");
-		
-		for (String articulo : listaArticulos) {
-		
-			String articuloNormalizado = "";
-			articuloNormalizado = articulo.toLowerCase();
-			articuloNormalizado = Normalizer.normalize(articuloNormalizado, Normalizer.Form.NFD);
+			for (int i = 0; i < galletas.length; i++) {
+				if ((nombreUsuario+"_pas").equalsIgnoreCase(galletas[i].getName()))
+					galleta = galletas[i];
+			}
 			
-			out.println("<input type='checkbox' name='articulos' value='"+articuloNormalizado+"' id=''>");
-			out.println("<label>"+articulo+"</label>");
+			if (galleta != null){
+				
+				
+				out.println("<h2>Bienvenido "+nombreUsuario+", tus países seleccionados son</h2>");
+		
+		
+				out.println("<ul>");
 			
+				String paisesUsuario = galleta.getValue();
+				
+				String[] paisesUsuarioSplit = paisesUsuario.split("-"); 
+				
+					for (String pais : paisesUsuarioSplit) {
+			
+						String paisNormalizado = "";
+						paisNormalizado = pais.toLowerCase();
+						paisNormalizado = Normalizer.normalize(paisNormalizado, Normalizer.Form.NFD);
+						out.println("<li><img src='imagenes/"+paisNormalizado+".png'</li>");
+				
+			
+					}
+
+				out.println("</ul>");
+				
+			
+			} else {
+				out.println("<h1>No existe el usuario "+nombreUsuario+"</h1>");
+			}
+	
+		} else {
+			out.println("<h1>No existen usuarios registrados</h1>");
+		} 
 		
-		}
-		
-		out.println("<input type='hidden' value='"+nombreUsuario+"' name='nombre'>");
-		out.println("<input type='submit' value='Comprar'>");
-		out.println("</form>");
+		out.println("</article>");
 		
 		rd = getServletContext().getRequestDispatcher("/pie.html");
 		rd.include(request, response);

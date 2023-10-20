@@ -18,36 +18,43 @@ public class Despedida extends HttpServlet{
 		
 		String nombreUsuario;
 		
-		nombreUsuario = (String) miSesion.getAttribute("nombreUsuario");
+		String[] paisesSeleccionados = request.getParameterValues("paises");
 		
-		listaArticulosUsuario = (ArrayList<String>)miSesion.getAttribute("listaArticulos");
-		
-		
+		nombreUsuario = (String) request.getParameter("nombre");
 		
 		out.println("<h2>Bienvenido "+nombreUsuario+"</h2>");
 		
+		if (paisesSeleccionados != null){
 		
+		out.println("<h2>Enhorabuena, los destines seleccionedes son les siguientes: </h2>");
 		
-		if (articulosSeleccionados != null){
+		String paisesTotal = "";
+		
 		out.println("<ul>");
 		
-			for (int i = 0; i < articulosSeleccionados.length; i++) {
-				out.println("<li>"+articulosSeleccionados[i]+"</li>");
-				listaArticulosUsuario.add(articulosSeleccionados[i]);
+			for (int i = 0; i < paisesSeleccionados.length - 1; i++) {
+				
+				out.println("<li>"+paisesSeleccionados[i]+"</li>");
+				paisesTotal += (paisesSeleccionados[i] + "-");
+			
 			}
+			
+			out.println("<li>"+paisesSeleccionados[paisesSeleccionados.length - 1]+"</li>");
+			paisesTotal += (paisesSeleccionados[paisesSeleccionados.length - 1]);
+			
 		out.println("</ul>");
-		}
 		
-
+		out.println("<p>"+paisesTotal+"</p>");
 		
-		out.println("<p>");
-		for (int i = 0; i < listaArticulosUsuario.size() - 1; i++){
-			out.println(listaArticulosUsuario.get(i)+" - ");
-		}
-		out.println(listaArticulosUsuario.get(listaArticulosUsuario.size() - 1));
-		out.println("</p>");
+		nombreUsuario += "_pas";
 		
-		out.println("<a href='index.html'>Volver al Índice</a>")
+		Cookie galleta = new Cookie(nombreUsuario, paisesTotal);
+		galleta.setPath("/");
+		response.addCookie(galleta);
+		
+		} else {out.println("<h2>No ha seleccionado ningún país, jolines</h2>");   }
+		
+		out.println("<a href='index.html'>Volver al Índice</a>");
 		
 		rd = getServletContext().getRequestDispatcher("/pie.html");
 		rd.include(request, response);

@@ -29,7 +29,7 @@ public class RecogidaEncuesta extends HttpServlet{
 		PrintWriter out = response.getWriter(); 
 	  	RequestDispatcher rd = getServletContext().getRequestDispatcher("/cabecera.html");
 		rd.include(request, response);
-		out.println("<link rel='stylesheet' href='style.css'>");
+		out.println("<link rel='stylesheet' href='estilorecogida.css'>");
 		out.println("</head>");
 		out.println("<body>");
 		
@@ -40,22 +40,22 @@ public class RecogidaEncuesta extends HttpServlet{
 		out.println("<h2>Bienvenido "+nombreUsuario+"</h2>");
 		
 		
-		out.println("<form action = 'Articulos'>");
+		out.println("<form action = 'Despedida'>");
 		
-		for (String articulo : listaArticulos) {
+		for (String paises : listaPaises) {
 		
-			String articuloNormalizado = "";
-			articuloNormalizado = articulo.toLowerCase();
-			articuloNormalizado = Normalizer.normalize(articuloNormalizado, Normalizer.Form.NFD);
+			String paisNormalizado = "";
+			paisNormalizado = paises.toLowerCase();
+			paisNormalizado = Normalizer.normalize(paisNormalizado, Normalizer.Form.NFD);
 			
-			out.println("<input type='checkbox' name='articulos' value='"+articuloNormalizado+"' id=''>");
-			out.println("<label>"+articulo+"</label>");
+			out.println("<input type='checkbox' name='paises' value='"+paisNormalizado+"' id=''>");
+			out.println("<label>"+paises+"</label>");
 			
 		
 		}
 		
 		out.println("<input type='hidden' value='"+nombreUsuario+"' name='nombre'>");
-		out.println("<input type='submit' value='Comprar'>");
+		out.println("<input type='submit' value='Enviar'>");
 		out.println("</form>");
 		
 		rd = getServletContext().getRequestDispatcher("/pie.html");
