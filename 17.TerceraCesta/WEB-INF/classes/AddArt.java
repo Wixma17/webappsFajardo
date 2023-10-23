@@ -26,7 +26,8 @@ public class AddArt extends HttpServlet{
 		Articulo art = mapaArticulos.get(nombre);
 		
 		if (art.restarUnidades(cantidadNumerica)){
-			if (articulosUsuario.get(nombre) != null){
+			
+			if (articulosUsuario.containsKey(nombre)){
 				cantidadUsuario = articulosUsuario.get(nombre);
 				cantidadUsuario = cantidadUsuario + cantidadNumerica;
 				articulosUsuario.put(nombre, cantidadUsuario);
