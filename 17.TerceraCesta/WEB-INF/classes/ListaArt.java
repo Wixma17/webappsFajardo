@@ -51,10 +51,7 @@ public class ListaArt extends HttpServlet{
 			miSesion.setAttribute("listaArticulos", listaArticulos);
 		}
 		
-		if (request.getParameter("cantidadSeleccionada") != null) {
-			rd = getServletContext().getRequestDispatcher("/AddArt");
-			rd.include(request, response);
-		}
+		
 		
 		HashMap<String, Articulo> mapaArticulos = (HashMap<String, Articulo>)getServletContext().getAttribute("articulos");
 		
@@ -64,9 +61,20 @@ public class ListaArt extends HttpServlet{
 		out.println("<h1>Bienvenido/a "+miSesion.getAttribute("nombre")+", has iniciado sesión a las "+sdf.format(((GregorianCalendar)miSesion.getAttribute("fechaConexion")).getTime())+"</h1>");
 		out.println("<h2>¿Qué quiere comprar?</h2>");
 		
-		if (miSesion.getAttribute("error") != null){
-			out.println("<h3>Has seleccionado artículos de más, introduce una cantidad válida</h3>");
-		} else out.println("<h3>Se ha añadido correctamente</h3>");
+		if (request.getParameter("cantidadSeleccionada") != null) {
+		
+			if(!request.getParameter("cantidadSeleccionada").equalsIgnoreCase("0")) {
+				rd = getServletContext().getRequestDispatcher("/AddArt");
+				rd.include(request, response);
+				
+				if (miSesion.getAttribute("error") != null){
+					out.println("<h3>Has seleccionado artículos de más, introduce una cantidad válida</h3>");
+				} else out.println("<h3>Se ha añadido correctamente</h3>");
+				
+			} else {
+				out.println("<h3>Seleccione una cantidad, por favor (mayor de 0)<h3>");
+			}
+		}
 		
 		out.println("<table>");
 		
