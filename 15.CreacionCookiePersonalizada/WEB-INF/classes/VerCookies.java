@@ -12,6 +12,7 @@ public class VerCookies extends HttpServlet{
 		PrintWriter out = response.getWriter(); 
 	  	RequestDispatcher rd = getServletContext().getRequestDispatcher("/cabecera.html");
 		rd.include(request, response);
+		
 		out.println("<link rel='stylesheet' href='estilorecogida.css'>");
 		out.println("</head>");
 		out.println("<body>");
