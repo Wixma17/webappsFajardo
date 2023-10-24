@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0"
+	metadata-complete="true">
+
+	<context-param>
+		<param-name>articulosTienda</param-name>
+		<param-value>Manzana_1;Platano_6;Chumbo_32;Kebab_10;Portugal_0;Limon_0;Adidas_4</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>AddArt</servlet-name>
+		<servlet-class>AddArt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddArt</servlet-name>
+		<url-pattern>/AddArt</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListaArt</servlet-name>
+		<servlet-class>ListaArt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListaArt</servlet-name>
+		<url-pattern>/ListaArt</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Salida</servlet-name>
+		<servlet-class>Salida</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Salida</servlet-name>
+		<url-pattern>/Salida</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>VerCesta</servlet-name>
+		<servlet-class>VerCesta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VerCesta</servlet-name>
+		<url-pattern>/VerCesta</url-pattern>
+	</servlet-mapping>
+</web-app>
